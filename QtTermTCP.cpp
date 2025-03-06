@@ -3617,7 +3617,7 @@ void GetSettings()
 	strcpy(listenCText, settings->value("listenCText", "").toString().toUtf8());
 
 	TermMode = settings->value("TermMode", 0).toInt();
-	singlemodeFormat = settings->value("singlemodeFormat", Term + Mon).toInt();
+	singlemodeFormat = settings->value("singlemodeFormat", Term).toInt();
 
 	AGWEnable = settings->value("AGWEnable", 0).toInt();
 	AGWMonEnable = settings->value("AGWMonEnable", 0).toInt();
