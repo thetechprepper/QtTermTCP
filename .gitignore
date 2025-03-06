@@ -262,6 +262,10 @@ __pycache__/
 
 # Build artifacts
 *.o
+moc_*
+qrc_*
+ui_*
 .qmake.stash
 Makefile
 QtTermTCP
+QtTermTCP.ini
