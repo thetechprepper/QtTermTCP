@@ -1063,7 +1063,7 @@ Ui_ListenSession * newWindow(QObject * parent, int Type, const char * Label)
         settings.value("Weight", 50).toInt());
 #else
 	QFont font = QFont(settings.value("FontFamily", "Courier New").value<QString>(),
-		settings.value("PointSize", 10).toInt(),
+		settings.value("PointSize", 8).toInt(),
 		settings.value("Weight", 50).toInt());
 #endif
 
@@ -1665,7 +1665,7 @@ QtTermTCP::QtTermTCP(QWidget *parent) : QMainWindow(parent)
 	statusBar()->addPermanentWidget(Status2);
 	statusBar()->addPermanentWidget(Status1);
 
-	statusBar()->setVisible(AGWEnable | VARAEnable | KISSEnable);
+	statusBar()->setVisible(false);
 	// Restore saved sessions
 
 	if (TermMode == Single)
@@ -2760,6 +2760,8 @@ void QtTermTCP::LreturnPressed(Ui_ListenSession * Sess)
 	char * Msg;
 
 	QScrollBar *scrollbar = Sess->termWindow->verticalScrollBar();
+	scrollbar->setStyleSheet("QScrollBar:vertical { width: 20px; }");
+
 	bool scrollbarAtBottom = (scrollbar->value() >= (scrollbar->maximum() - 4));
 
 	if (scrollbarAtBottom)
