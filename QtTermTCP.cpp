@@ -669,6 +669,9 @@ void DoTermResize(Ui_ListenSession * Sess)
 	Width = r.width();
 	H = r.height();
 
+    //qDebug() << QString("height=%1").arg(H);
+    //qDebug() << QString("width=%1").arg(Width);
+
 	if (TermMode == Tabbed)
 	{
 		//					H -= 20;
@@ -4259,7 +4262,7 @@ void QtTermTCP::KISSaccept()
 	txdelay[0] = Q.toInt();
 	sendTXDelay[0] = KISS->SetTXDelay->isChecked();
 
-	myStatusBar->setVisible(AGWEnable | VARAEnable | KISSEnable);
+	myStatusBar->setVisible(false);
 
 	if (KISSEnable != OldEnable || KISSPortNum != OldPort ||
 		strcmp(oldHost, KISSHost) != 0 ||
@@ -4672,7 +4675,7 @@ void QtTermTCP::deviceaccept()
 		if ((VARAEnable == 0 || strcmp(oldPath, VARAPath) != 0))
 			process->close();
 
-	myStatusBar->setVisible(AGWEnable | VARAEnable | KISSEnable);
+	//myStatusBar->setVisible(AGWEnable | VARAEnable | KISSEnable);
 
 	ClosePTTPort();
 	OpenPTTPort();
